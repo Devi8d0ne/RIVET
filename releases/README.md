@@ -7,7 +7,7 @@ This folder contains the built Linux runtime, its SHA-256 checksum and standalon
 Use the existing Ubuntu studio. In Termux:
 
 ```sh
-~/start-foldcast
+~/start-rivet
 ```
 
 Open `http://127.0.0.1:8787/` in Android Chrome on that phone. It works locally without internet after prerequisites are installed. Grant camera/microphone permission when using those sources. Keep Termux and the browser running during production.
@@ -19,7 +19,7 @@ Requires Python 3.10+, Bash and a compatible browser. FFmpeg with libx264/AAC en
 ```sh
 sha256sum -c rivet-0.1.0-linux.tar.gz.sha256
 tar -xzf rivet-0.1.0-linux.tar.gz -C "$HOME"
-bash "$HOME/foldcast/launch.sh"
+bash "$HOME/rivet/launch.sh"
 ```
 
 Then open `http://127.0.0.1:8787/` on that same machine. No Node.js installation is needed to run the packaged app.
@@ -34,4 +34,4 @@ bash ./install-rivet-termux.sh --launch
 
 Install Termux first. Internet is needed once for any missing Termux/Ubuntu prerequisites; the installer then adds Ubuntu, Python, FFmpeg, RIVET, `~/start-rivet`, and the Termux:Widget shortcut files. After setup, local production and transcoding work offline. This first-install command refuses to replace an existing studio. It does not enable a device-specific Android encoder automatically. The tested Fold5 adapter is documented in the source README; other phones and sustained performance still need validation.
 
-The full runtime README is inside the archive. Source verification and continuation notes are in `foldcast/VERIFICATION.md` and `foldcast/HANDOFF.md`.
+The full runtime README and verification notes are under `rivet/` in the source repository.

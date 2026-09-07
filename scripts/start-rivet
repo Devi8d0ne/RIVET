@@ -1,0 +1,48 @@
+#!/data/data/com.termux/files/usr/bin/bash
+# Install as ~/start-rivet; Ubuntu app files belong in /root/rivet.
+set -euo pipefail
+umask 077
+open_browser=true
+case "${1:-}" in
+  '') ;;
+  --no-open) open_browser=false ;;
+  *) printf 'Usage: %s [--no-open]\n' "$0" >&2; exit 2 ;;
+esac
+if [[ $# -gt 1 ]]; then
+  printf 'Usage: %s [--no-open]\n' "$0" >&2
+  exit 2
+fi
+if ! command -v proot-distro >/dev/null 2>&1 || ! command -v python >/dev/null 2>&1; then
+  printf 'RIVET needs this Termux setup: proot-distro, its Ubuntu installation, and Python.\n' >&2
+  exit 1
+fi
+state_dir="$HOME/.local/state/rivet"
+mkdir -p "$state_dir"
+chmod 700 "$state_dir"
+
+healthy() {
+  python -c 'import json, urllib.request; o=urllib.request.build_opener(urllib.request.ProxyHandler({})); r=o.open("http://127.0.0.1:8787/api/status", timeout=2); d=json.load(r); assert isinstance(d.get("ffmpeg"), bool) and isinstance(d.get("stream"), dict) and isinstance(d["stream"].get("status"), str)' >/dev/null 2>&1
+}
+
+if ! healthy; then
+  # Explicit bash arguments bypass Ubuntu shell startup customizations.
+  nohup proot-distro login ubuntu -- /usr/bin/env -u BASH_ENV /bin/bash --noprofile --norc /root/rivet/launch.sh >"$state_dir/server.log" 2>&1 </dev/null &
+  server_pid=$!
+  printf '%s\n' "$server_pid" >"$state_dir/server.pid"
+  ready=false
+  for ((attempt=0; attempt<40; attempt++)); do
+    if healthy; then ready=true; break; fi
+    if ! kill -0 "$server_pid" 2>/dev/null; then break; fi
+    sleep 0.25
+  done
+  if [[ "$ready" != true ]]; then
+    printf 'RIVET did not become ready. Read %s for startup details.\n' "$state_dir/server.log" >&2
+    exit 1
+  fi
+fi
+
+if [[ "$open_browser" == true ]] && command -v termux-open-url >/dev/null 2>&1; then
+  termux-open-url 'http://127.0.0.1:8787/' || true
+fi
+printf 'RIVET is ready at http://127.0.0.1:8787/\n'
+printf 'Keep Termux and the browser running while recording or broadcasting.\n'

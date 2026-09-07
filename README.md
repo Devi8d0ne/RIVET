@@ -62,12 +62,12 @@ Android browser · 127.0.0.1:8787
 ## Build and test
 
 ```sh
-npm --prefix foldcast ci
-npm --prefix foldcast run build
-python -m unittest discover -s foldcast/tests -p "test_*.py"
-node --test foldcast/tests/test_capture.mjs
-python -m unittest tests.test_foldcast_packaging
-python scripts/package-foldcast.py releases/rivet-0.1.0-linux.tar.gz
+npm --prefix rivet ci
+npm --prefix rivet run build
+python -m unittest discover -s rivet/tests -p "test_*.py"
+node --test rivet/tests/test_capture.mjs
+python -m unittest tests.test_rivet_packaging
+python scripts/package-rivet.py releases/rivet-0.1.0-linux.tar.gz
 ```
 
 Node is needed to build the frontend. End users run the packaged static assets with Python and FFmpeg.

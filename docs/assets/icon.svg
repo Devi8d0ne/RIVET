@@ -1,5 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-labelledby="title">
-  <title id="title">RIVET</title>
-  <rect width="64" height="64" rx="15" fill="#101114"/>
-  <path fill="#ff8c42" fill-rule="evenodd" transform="translate(-2 -2)" d="M16 12h23l11 11v12l-9 8 13 13H40L26 41v15H16V12Zm10 10v10h11l3-3v-4l-3-3H26Z"/>
-</svg>
