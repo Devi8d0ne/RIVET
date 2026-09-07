@@ -1,0 +1,13 @@
+__pycache__/
+*.py[cod]
+.DS_Store
+foldcast/node_modules/
+foldcast/dist/
+foldcast/data/
+foldcast/toolchain/
+.rivet-site-preview/
+releases/*.tar.gz
+releases/*.tar.gz.sha256
+foldcast-runtime.tar.gz
+foldcast-runtime.tar.gz.sha256
+docs/design/

@@ -1,0 +1,6 @@
+#!/bin/sh
+# Ubuntu/PRoot bridge to this phone's native Android FFmpeg. System libraries
+# must precede Termux's namespace stubs for the Qualcomm graphics mapper.
+unset LD_PRELOAD
+export LD_LIBRARY_PATH=/system/lib64:/data/data/com.termux/files/usr/lib
+exec /data/data/com.termux/files/usr/bin/ffmpeg "$@"

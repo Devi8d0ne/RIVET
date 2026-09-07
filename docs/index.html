@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0d0f11">
+  <meta name="description" content="RIVET is an offline-first sports broadcast studio for flagship Android phones and Linux.">
+  <title>RIVET — Your phone is the broadcast truck</title>
+  <link rel="icon" href="assets/icon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="styles.css">
+  <script src="site.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <a class="wordmark" href="#top" aria-label="RIVET home"><img src="assets/icon.svg" alt="" width="38" height="38"><span>RIVET</span></a>
+    <nav aria-label="Main navigation">
+      <a href="#features">Features</a>
+      <a href="#install">Install</a>
+      <a href="#requirements">Requirements</a>
+      <a href="https://github.com/Devi8d0ne/RIVET#readme">Docs</a>
+      <a href="https://github.com/Devi8d0ne/RIVET">GitHub <span aria-hidden="true">↗</span></a>
+    </nav>
+  </header>
+
+  <main id="main">
+    <section class="hero" id="top">
+      <div class="hero-copy">
+        <h1>Your phone is<br>the broadcast truck.</h1>
+        <p>Produce, record, replay, transcode, and multistream from one device.</p>
+        <div class="hero-actions">
+          <a class="button primary" href="https://github.com/Devi8d0ne/RIVET/releases/latest">Download for Android</a>
+          <a class="button secondary" href="https://github.com/Devi8d0ne/RIVET">View on GitHub</a>
+        </div>
+      </div>
+      <div class="hero-mark" aria-hidden="true"><img src="assets/icon.svg" alt=""></div>
+      <figure class="product-frame">
+        <div class="frame-bar"><span><img src="assets/icon.svg" alt=""> RIVET STUDIO</span><span>LOCAL · OFFLINE READY</span></div>
+        <img src="assets/rivet-studio.png" alt="RIVET studio showing Preview and Program monitors, sports controls, sources, audio mixer, and scene controls">
+      </figure>
+    </section>
+
+    <section class="section features" id="features">
+      <h2>Built for the whole game</h2>
+      <div class="feature-grid">
+        <article><span class="feature-icon" aria-hidden="true">▣</span><h3>Local production</h3><p>Switch cameras, graphics, scoreboards, scenes, and audio with no cloud required.</p></article>
+        <article><span class="feature-icon" aria-hidden="true">◉</span><h3>Live multistream</h3><p>Send one local encode to as many as four RTMP or RTMPS destinations.</p></article>
+        <article><span class="feature-icon" aria-hidden="true">↶</span><h3>Instant replay</h3><p>Keep recent action ready, save the moment, and bring it back into the show.</p></article>
+        <article><span class="feature-icon" aria-hidden="true">▰</span><h3>Offline library</h3><p>Record, manage, recover, and transcode locally while keeping the original media.</p></article>
+      </div>
+    </section>
+
+    <section class="section install" id="install">
+      <div>
+        <h2>Termux in. RIVET on.</h2>
+        <p>Install Termux on Android, then paste one command. RIVET installs its Ubuntu runtime, Python, FFmpeg, launcher, and shortcut files.</p>
+        <p class="fine-print">The first setup needs internet for missing packages. Production and transcoding work offline afterward.</p>
+      </div>
+      <div class="terminal" aria-label="RIVET install command">
+        <div class="terminal-top"><span>TERMUX</span><button id="copy-install" type="button">Copy command</button></div>
+        <pre><code id="install-command">curl -fsSL https://raw.githubusercontent.com/Devi8d0ne/RIVET/main/install.sh | bash</code></pre>
+        <p id="copy-status" role="status" aria-live="polite"></p>
+      </div>
+    </section>
+
+    <section class="section destinations" aria-labelledby="destinations-title">
+      <h2 id="destinations-title">Stream to your destinations</h2>
+      <div class="destination-list">
+        <span>YouTube</span><span>Facebook Live</span><span>Twitch</span><span>Kick</span><span>Custom RTMP</span>
+      </div>
+      <p>You provide each server URL and private stream key. RIVET never starts a broadcast automatically.</p>
+    </section>
+
+    <section class="section requirements" id="requirements">
+      <h2>Requirements</h2>
+      <div class="requirement-list">
+        <div><strong>Flagship Android</strong><span>recommended</span></div>
+        <div><strong>Android 12+</strong><span>starting target</span></div>
+        <div><strong>8 GB RAM</strong><span>recommended</span></div>
+        <div><strong>10 GB free</strong><span>plus recording space</span></div>
+        <div><strong>Chromium browser</strong><span>camera and microphone</span></div>
+      </div>
+      <p class="fine-print">Fold5 is the development device. Test heat, battery, storage, frame rate, and audio sync for the full event length before production use.</p>
+    </section>
+
+    <section class="final-cta">
+      <h2>Start producing locally.</h2>
+      <p>Your sources, your recordings, your stream keys, your hardware.</p>
+      <div class="hero-actions">
+        <a class="button primary" href="https://github.com/Devi8d0ne/RIVET/releases/latest">Download for Android</a>
+        <a class="button secondary" href="https://github.com/Devi8d0ne/RIVET">View on GitHub</a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <a class="wordmark" href="#top"><img src="assets/icon.svg" alt="" width="30" height="30"><span>RIVET</span></a>
+    <p>Open-source local broadcasting for the game.</p>
+    <div><a href="https://github.com/Devi8d0ne/RIVET#readme">Docs</a><a href="https://github.com/Devi8d0ne/RIVET">GitHub</a></div>
+  </footer>
+</body>
+</html>
